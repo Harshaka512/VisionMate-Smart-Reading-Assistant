@@ -1,0 +1,16 @@
+{
+  "name": "visionmate-research-portfolio",
+  "version": "1.0.0",
+  "description": "VisionMate - Smart Wearable Reading Assistant Research Portfolio for SLIIT CDAP",
+  "scripts": {
+    "start": "npx serve . -l 3000",
+    "dev": "npx serve . -l 3000"
+  },
+  "keywords": [
+    "assistive-technology",
+    "sliit-cdap",
+    "research-portfolio"
+  ],
+  "author": "Research Group R26-IT-41",
+  "license": "MIT"
+}

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Domain & Methodology — VisionMate | SLIIT CDAP</title>
+  <meta name="description" content="Detailed research domain, literature survey, research gap, objectives, methodology, and technology stack for VisionMate - Smart Wearable Reading Assistant." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Favicon / Tab Icon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="alternate icon" href="favicon.svg" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <a href="#main-content" class="sr-only">Skip to primary content</a>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="VisionMate Homepage">
+        <span class="brand-badge" aria-hidden="true">VM</span>
+        <div class="brand-info">
+          <span class="brand-title">VisionMate</span>
+          <span class="brand-subtitle">SLIIT · R26-IT-41</span>
+        </div>
+      </a>
+
+      <nav class="primary-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-item-link">Home</a></li>
+          <li><a href="domain.html" class="nav-item-link active" aria-current="page">Domain</a></li>
+          <li><a href="milestones.html" class="nav-item-link">Milestones</a></li>
+          <li><a href="documents.html" class="nav-item-link">Documents</a></li>
+          <li><a href="presentations.html" class="nav-item-link">Presentations</a></li>
+          <li><a href="about.html" class="nav-item-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-item-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="toggle-font-btn" class="a11y-btn" title="Toggle Larger Font" aria-label="Toggle larger font size">
+          <span style="font-weight: 700; font-size: 0.95rem;">A+</span>
+        </button>
+        <button id="toggle-contrast-btn" class="a11y-btn" title="Toggle High Contrast" aria-label="Toggle high contrast mode">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20z"/>
+          </svg>
+        </button>
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle mobile menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-nav" class="mobile-nav-panel">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="domain.html" class="mobile-nav-link active">Domain</a></li>
+        <li><a href="milestones.html" class="mobile-nav-link">Milestones</a></li>
+        <li><a href="documents.html" class="mobile-nav-link">Documents</a></li>
+        <li><a href="presentations.html" class="mobile-nav-link">Presentations</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="index.html">Home</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li class="breadcrumb-current">Research Domain & Methodology</li>
+      </ul>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- Domain Hero Header -->
+    <section class="section" style="padding-bottom: 2rem;">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <span class="section-pill">Research Scope & Domain</span>
+          <h1 class="section-title">Domain Analysis & System Methodology</h1>
+          <p class="section-desc">
+            A comprehensive breakdown of our literature survey, research gaps, formal problem statement, research objectives, and the four modular engineering subsystems.
+          </p>
+        </div>
+
+        <!-- Section Navigation Jump Links -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 2rem;">
+          <a href="#literature-survey" class="btn btn-secondary btn-sm">1. Literature Survey</a>
+          <a href="#research-gap" class="btn btn-secondary btn-sm">2. Research Gap</a>
+          <a href="#problem-solution" class="btn btn-secondary btn-sm">3. Problem & Solution</a>
+          <a href="#objectives" class="btn btn-secondary btn-sm">4. Research Objectives</a>
+          <a href="#methodology" class="btn btn-secondary btn-sm">5. Methodology & Architecture</a>
+          <a href="#technologies" class="btn btn-secondary btn-sm">6. Technologies Used</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Literature Survey (Website.pdf Slide 10) -->
+    <section id="literature-survey" class="section" style="background: rgba(13, 19, 34, 0.4);">
+      <div class="container">
+        <div style="margin-bottom: 2.5rem;">
+          <span class="section-pill">Academic Foundation</span>
+          <h2 style="font-size: 2rem; color: #ffffff; margin-bottom: 0.75rem;">1. Literature Survey</h2>
+          <p style="color: var(--text-muted); max-width: 860px; line-height: 1.7;">
+            Globally, at least <strong>2.2 billion people</strong> live with near or distance vision impairments (World Health Organization, 2026). While conventional assistive systems combine optical character recognition (OCR) and text-to-speech (TTS), existing literature reveals that reading printed materials independently is a multi-stage challenge spanning physical positioning, document comprehension, layout deconstruction, and cognitive personalization.
+          </p>
+        </div>
+
+        <div class="grid-2" style="gap: 1.75rem;">
+          <div class="card">
+            <span class="tag" style="background: rgba(56,189,248,0.15); color: #38bdf8; margin-bottom: 0.75rem;">Module 01 Domain</span>
+            <h3 style="font-size: 1.18rem; color: #ffffff; margin-bottom: 0.5rem;">Wearable Camera Guidance &amp; Edge Vision</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.65;">
+              Wearable reading research began with finger-mounted scanning devices such as <em>FingerReader</em> (Shilkrot et al., MIT Media Lab [2]) and <em>Finger-eye</em> (Liu et al. [4]), which demonstrated tactile reading but lacked automated full-page framing. Later embedded systems including <em>Vivoice</em> (Prabha et al. [5]), Viet et al. [4], and wearable ring readers (Dubey et al. [6]) demonstrated Raspberry Pi camera capture. However, they assume clear static images are already available. VisionMate addresses this pre-capture gap by deploying real-time YOLO11n object detection and OpenCV boundary/margin algorithms directly on Raspberry Pi 5 to provide audible directional guidance.
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="tag" style="background: rgba(129,140,248,0.15); color: #818cf8; margin-bottom: 0.75rem;">Module 02 Domain</span>
+            <h3 style="font-size: 1.18rem; color: #ffffff; margin-bottom: 0.5rem;">Document Classification &amp; Vision-Language Models</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.65;">
+              Document image classification research (Liu et al. [1]; Appalaraju et al., <em>DocFormer</em> [3]) demonstrates that identifying document genre is essential for tailoring reading workflows. For wearable devices, lightweight inverted-residual networks such as <em>MobileNetV2</em> (Sandler et al. [2]) provide high accuracy with low computational footprint. Furthermore, assistive accessibility studies like <em>VizWiz</em> (Gurari et al. [6], [7]) prove that blind users require descriptions of non-textual imagery. VisionMate leverages <em>Salesforce BLIP</em> (Li et al. [4]) and <em>Microsoft Florence-2</em> (Xiao et al. [5]) with accessibility post-filtering to describe book covers, illustrations, charts, and diagrams that OCR engines ignore.
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="tag" style="background: rgba(52,211,153,0.15); color: #34d399; margin-bottom: 0.75rem;">Module 03 Domain</span>
+            <h3 style="font-size: 1.18rem; color: #ffffff; margin-bottom: 0.5rem;">Document Layout Analysis &amp; Local Summarization</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.65;">
+              Complex printed materials such as newspapers and magazines present multi-column body text, section headers, and dispersed articles. Classical layout analysis (Mitchell &amp; Yan [5]; Palfray et al. [6]) and recent spatial benchmarks (<em>DocBed</em> [7]; <em>PubLayNet</em> [17]; <em>DocBank</em> [18]) confirm that raw sequential OCR interleaves neighbouring columns. <em>Broken News</em> (Agarwal et al. [8]) demonstrated the necessity of structural reconstruction for print-impaired readers. VisionMate couples local <em>Tesseract OCR</em> with <em>DocLayout-YOLO</em> (Zhao et al. [21]) and graph-based article grouping $G=(V,E)$, categorizing stories into 7 semantic classes via TF-IDF Logistic Regression, offering hands-free <em>Vosk</em> navigation, and summarizing content with local grounded <em>Llama 3.2:3B</em> (Ollama).
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="tag" style="background: rgba(244,114,182,0.15); color: #f472b6; margin-bottom: 0.75rem;">Module 04 Domain</span>
+            <h3 style="font-size: 1.18rem; color: #ffffff; margin-bottom: 0.5rem;">Personalized Reading &amp; Session Continuity</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.65;">
+              Personalized text simplification literature (Bingel [14]; <em>ACCESS</em>, Martin et al. [7]) demonstrates that text difficulty is user-dependent, meaning fixed-vocabulary TTS fails diverse readers. Sequence-to-sequence transformers like <em>T5</em> (Raffel et al. [8]; Alva-Manchego et al. [9]) enable controllable multi-level simplification. In speech processing, acoustic Mel-Frequency Cepstral Coefficients (<em>MFCC</em>, Davis &amp; Mermelstein [11]) combined with Support Vector Machines (<em>SVM</em>, Cortes &amp; Vapnik [12]; Wang &amp; Hu [10]) provide robust voice-tone classification. VisionMate integrates persistent contactless <em>RFID</em> identification (Want [13]) with a local SQLite preference database and deterministic speech-completion synchronization to create a continuous closed reading loop.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Research Gap (Website.pdf Slide 10) -->
+    <section id="research-gap" class="section">
+      <div class="container">
+        <div style="margin-bottom: 2rem;">
+          <span class="section-pill">Identified Limitations</span>
+          <h2 style="font-size: 2rem; color: #ffffff; margin-bottom: 0.75rem;">2. Research Gap &amp; Problem-to-Solution Matrix</h2>
+          <p style="color: var(--text-muted); max-width: 860px; line-height: 1.6;">
+            A comprehensive synthesis mapped directly from our four research dissertations (Table 1, Table 2, Table 4, &amp; Table 5), contrasting representative prior systems with the integrated VisionMate solution across all four project modules.
+          </p>
+        </div>
+
+        <div class="table-responsive">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Operational Research Gap</th>
+                <th>Prior Systems Evidence (FingerReader, Vivoice, Sharma, ACCESS)</th>
+                <th>VisionMate Integrated Proposed Response</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Pre-Capture Positioning Blindness (Module 1)</strong></td>
+                <td>Existing systems assume a perfectly framed image already exists. Visually impaired users cannot determine tilt, skew, distance, or lighting.</td>
+                <td><span class="check-mark">✓</span> <strong>Real-Time Voice-Guided Alignment:</strong> YOLO11n page detection + OpenCV boundary refinement + area-ratio distance estimation + voice prompts ("Move closer/left") + auto-capture.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Document Context &amp; Visual Content Blindness (Module 2)</strong></td>
+                <td>OCR/TTS readers treat all documents as flat text, failing to detect document genre and completely ignoring photographs, charts, and diagrams.</td>
+                <td><span class="check-mark">✓</span> <strong>5-Class Classification &amp; Multimodal Captioning:</strong> MobileNetV2 classifies Magazine, Newspaper, Novel, Letter, Report (87.27% test). Local BLIP and Florence-2 describe inside illustrations.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Multi-Column Layout Interleaving (Module 3)</strong></td>
+                <td>Conventional OCR streams read text top-to-bottom across adjacent columns, scrambling independent news stories and advertisements together.</td>
+                <td><span class="check-mark">✓</span> <strong>Hybrid Layout &amp; Graph Article Reconstruction:</strong> DocLayout-YOLO + Tesseract geometry + adaptive reading-lanes + $G=(V,E)$ graph reconstructs discrete multi-column stories and partial captures.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Exhaustive Monolithic Reading (Module 3)</strong></td>
+                <td>Users are forced to listen to entire pages sequentially to find desired topics, without semantic categorization or concise summaries.</td>
+                <td><span class="check-mark">✓</span> <strong>7-Class Navigation &amp; Grounded Local Summaries:</strong> TF-IDF Logistic Regression classifies 7 categories (85.71% accuracy). Offline Vosk speech navigation + local Llama 3.2:3B summaries via Ollama.</td>
+              </tr>
+              <tr>
+                <td><strong>5. Uniform Language Complexity (Module 4)</strong></td>
+                <td>Complex syntax and specialized vocabulary are read verbatim, overwhelming readers who require simpler language or different cognitive pacing.</td>
+                <td><span class="check-mark">✓</span> <strong>Level-Aware T5-small Text Simplification:</strong> Sequence-to-sequence transformer fine-tuned on 1,796 records across 3 reading tiers (Very Simple, Moderate, Light; BLEU 62.85, 83% accuracy).</td>
+              </tr>
+              <tr>
+                <td><strong>6. Session Discontinuity &amp; Static Audio (Module 4)</strong></td>
+                <td>No memory of user preferences across sessions. Readers cannot tell if speech ended due to page completion or system failure.</td>
+                <td><span class="check-mark">✓</span> <strong>RFID Profile Persistence &amp; Deterministic Completion:</strong> Contactless tag loads SQLite preferences with 3-attempt recovery. PCA-SVM tunes voice (82.72%). Audible page-turn cue loops to next page.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Problem Statement & Proposed Solution (Website.pdf Slide 10) -->
+    <section id="problem-solution" class="section" style="background: rgba(13, 19, 34, 0.4);">
+      <div class="container">
+        <div class="grid-2" style="align-items: center; gap: 3rem; margin-bottom: 3.5rem;">
+          <div>
+            <span class="section-pill">Research Problem</span>
+            <h2 style="font-size: 2rem; color: #ffffff; margin-bottom: 1rem;">
+              "Printed Accessibility Demands Multi-Stage Document Understanding, Not Raw OCR-to-Speech."
+            </h2>
+            <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem;">
+              Traditional assistive reading technologies model reading as a simplistic, one-shot pipeline: <code>Image &rarr; OCR &rarr; Text &rarr; Speech</code>. This conventional approach breaks down in real-world scenarios because printed media is visually, structurally, and linguistically complex.
+            </p>
+            <div style="background: rgba(239, 68, 68, 0.1); border-left: 4px solid #ef4444; padding: 1.15rem 1.35rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
+              <strong style="color: #fca5a5; display: block; margin-bottom: 0.35rem;">The Four Core Accessibility Failures:</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; display: block;">
+                1. <strong>Pre-Capture Positioning Failure:</strong> Blind users cannot verify if a page is in frame, at the right focal distance, or tilted.<br />
+                2. <strong>Visual Content Blindness:</strong> Standard OCR reads only text characters, discarding cover artwork, photographs, and charts.<br />
+                3. <strong>Structural Layout Scrambling:</strong> Multi-column newspapers interleave separate stories into disjointed audio fragments.<br />
+                4. <strong>Linguistic &amp; Session Inflexibility:</strong> Rigid vocabulary overwhelms users, and absence of persistent profiles requires repetitive manual setup.
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <span class="section-pill" style="color: #10b981; border-color: rgba(16, 185, 129, 0.3);">Proposed Solution</span>
+            <h2 style="font-size: 2rem; color: #ffffff; margin-bottom: 1rem;">
+              VisionMate: An Autonomous, Edge-Assisted Wearable Framework
+            </h2>
+            <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem;">
+              VisionMate transforms assistive reading into an intelligent, user-directed closed loop that spans wearable sensing, deep vision-language understanding, graph-based article reconstruction, and profile-driven personalized speech delivery.
+            </p>
+            <div style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 1.15rem 1.35rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
+              <strong style="color: #6ee7b7; display: block; margin-bottom: 0.35rem;">The Closed-Loop VisionMate Sequence:</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; display: block;">
+                User taps RFID card &rarr; Device retrieves stored preferences &rarr; Camera guidance gives directional cues &rarr; Auto-capture takes high-res frame &rarr; Document type is classified &rarr; Visual graphics described aloud &rarr; Layout analyzed &amp; articles reconstructed &rarr; User selects topic via Vosk voice commands &rarr; Llama 3.2:3B generates grounded summary &rarr; T5 simplifies vocabulary &rarr; Audio delivered via I2S stereo speakers &rarr; Audible page-turn prompt re-engages camera guidance for next page.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5-Stage System Architecture Across All 4 Modules -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 2.25rem;">
+          <div style="text-align: center; margin-bottom: 2rem;">
+            <span class="tag" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); margin-bottom: 0.5rem;">
+              Comprehensive System Workflow
+            </span>
+            <h3 style="font-size: 1.45rem; color: #ffffff;">The Five Coordinated Stages of VisionMate</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); max-width: 750px; margin: 0.5rem auto 0;">
+              Derived from the unified system architecture (Figure 1) presented across all four engineering research theses.
+            </p>
+          </div>
+          <div class="grid-3" style="gap: 1.25rem;">
+            <div class="card" style="padding: 1.35rem; border-color: rgba(244, 114, 182, 0.3);">
+              <span class="tag" style="color: #f472b6;">Stage 1: Identity &amp; Profile (M4)</span>
+              <h4 style="font-size: 1.05rem; color: #ffffff; margin-top: 0.4rem; margin-bottom: 0.25rem;">RFID Tap &rarr; SQLite Profile</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.55;">MFRC522 contactless card resolves user ID, loading reading level, voice gender, pace, and tone with a bounded 3-attempt spoken retry for returning users.</p>
+            </div>
+            <div class="card" style="padding: 1.35rem; border-color: rgba(56, 189, 248, 0.3);">
+              <span class="tag" style="color: #38bdf8;">Stage 2: Guidance &amp; Capture (M1)</span>
+              <h4 style="font-size: 1.05rem; color: #ffffff; margin-top: 0.4rem; margin-bottom: 0.25rem;">YOLO11n + OpenCV &rarr; Auto-Capture</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.55;">Raspberry Pi 5 and UGREEN 4K camera detect page borders (99.4% mAP50), issuing voice guidance ("Move closer/left") and triggering auto-capture upon stable distance/visibility.</p>
+            </div>
+            <div class="card" style="padding: 1.35rem; border-color: rgba(129, 140, 248, 0.3);">
+              <span class="tag" style="color: #818cf8;">Stage 3: Document &amp; Visual AI (M2)</span>
+              <h4 style="font-size: 1.05rem; color: #ffffff; margin-top: 0.4rem; margin-bottom: 0.25rem;">MobileNetV2 + BLIP &amp; Florence-2</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.55;">Classifies 5 document genres (87.27% accuracy), extracts titles via OCR, and generates natural-language captions for cover art (BLIP) and inside diagrams (Florence-2).</p>
+            </div>
+            <div class="card" style="padding: 1.35rem; border-color: rgba(52, 211, 153, 0.3);">
+              <span class="tag" style="color: #34d399;">Stage 4: Layout &amp; Summary (M3)</span>
+              <h4 style="font-size: 1.05rem; color: #ffffff; margin-top: 0.4rem; margin-bottom: 0.25rem;">DocLayout-YOLO &rarr; Vosk &rarr; Llama 3.2</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.55;">Reconstructs multi-column articles via graph logic $G=(V,E)$, categorizes into 7 classes (85.71% accuracy), accepts Vosk speech choices, and generates grounded local summaries.</p>
+            </div>
+            <div class="card" style="padding: 1.35rem; border-color: rgba(251, 191, 36, 0.3); grid-column: span 2;">
+              <span class="tag" style="color: #fbbf24;">Stage 5: Adaptivity &amp; Continuity Loop (M4 &amp; M1)</span>
+              <h4 style="font-size: 1.05rem; color: #ffffff; margin-top: 0.4rem; margin-bottom: 0.25rem;">T5 Simplification &rarr; PCA-SVM Audio &rarr; Deterministic Page Turn</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.55;">T5-small adapts language difficulty across 3 tiers (BLEU 62.85). Speech is styled via PCA-SVM (82.72%) and delivered through dual MAX98357 I2S amplifiers. Playback completion triggers an audible prompt (<em>"Reading complete. Please turn to the next page."</em>), smoothly re-engaging camera guidance for subsequent pages without restarting session configuration.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Research Objectives (Website.pdf Slide 10) -->
+    <section id="objectives" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pill">Project Goals</span>
+          <h2 class="section-title">4. Research Objectives &amp; Component Breakdown</h2>
+          <p class="section-desc">
+            VisionMate is driven by an overarching project mission realized through four dedicated, experimentally evaluated sub-objectives across our final-year cohort.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 2.25rem; margin-bottom: 2.5rem; text-align: center;">
+          <span class="tag" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); margin-bottom: 0.75rem;">
+            Overarching Project Aim
+          </span>
+          <h3 style="font-size: 1.4rem; color: #ffffff; max-width: 950px; margin: 0 auto; line-height: 1.55; font-weight: 700;">
+            "To design, develop, and evaluate VisionMate: an autonomous, edge-assisted smart wearable reading assistant that empowers visually impaired individuals to independently access and read printed materials through real-time voice-guided camera positioning and auto-capture, automated document-type identification and multimodal image description, layout-aware article reconstruction with semantic categorization and local summarization, and profile-driven personalized reading with deterministic page-completion control in an end-to-end closed reading loop."
+          </h3>
+        </div>
+
+        <div class="grid-2">
+          <!-- Objective 1 -->
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem;">
+              <div class="brand-badge" style="width: 36px; height: 36px; font-size: 0.95rem;">01</div>
+              <div>
+                <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.15rem;">Objective 1: Camera Position Guidance &amp; Auto-Capture</h3>
+                <span style="font-size: 0.8rem; color: var(--accent-cyan); font-family: var(--font-mono);">Lead: Priyashantha D G M D · IT22295392</span>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+              Develop a real-time computer vision module utilizing a trained YOLO11n page detector (99.4% mAP50 on 309 images) and OpenCV boundary refinement running locally on Raspberry Pi 5. Calculate calibrated area-ratio distance and 4-edge margin visibility, provide spoken spatial guidance cues, and execute rapid auto-capture without requiring strict centring. Integrate the complete physical prototype including UGREEN 4K camera, dual MAX98357 I2S 3W amplifiers, stereo speakers, power bank, and USB-C power circuitry.
+            </p>
+          </div>
+
+          <!-- Objective 2 -->
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem;">
+              <div class="brand-badge" style="width: 36px; height: 36px; font-size: 0.95rem; background: var(--grad-cyan-emerald);">02</div>
+              <div>
+                <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.15rem;">Objective 2: Document Identification &amp; Image Describing</h3>
+                <span style="font-size: 0.8rem; color: #818cf8; font-family: var(--font-mono);">Lead: D C M A Chithrasena · IT22114112</span>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+              Train a 5-class MobileNetV2 transfer-learning model on 1,095 images to classify Magazine, Newspaper, Novel, Printed Letter, and Report (87.27% test accuracy, 90.91% validation). Implement document-specific title/masthead extraction via EasyOCR and PaddleOCR fallback. Deploy local vision-language models—Salesforce BLIP for book/magazine cover captioning and Microsoft Florence-2 for inside diagrams, illustrations, and maps—with accessibility post-filtering via dedicated FastAPI endpoints.
+            </p>
+          </div>
+
+          <!-- Objective 3 -->
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem;">
+              <div class="brand-badge" style="width: 36px; height: 36px; font-size: 0.95rem; background: var(--grad-purple-pink);">03</div>
+              <div>
+                <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.15rem;">Objective 3: Content Summarization &amp; Category Detection</h3>
+                <span style="font-size: 0.8rem; color: #34d399; font-family: var(--font-mono);">Lead: Herath H M M G E H B · IT22198136</span>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+              Implement hybrid document layout analysis fusing local Tesseract OCR with DocLayout-YOLO (DocStructBench 1024) and OpenCV geometry to infer reading lanes and reconstruct multi-column newspaper articles using a graph-based representation $G=(V,E)$ supporting partial captures. Classify articles into 7 semantic categories via TF-IDF + Logistic Regression (85.71% test accuracy on 6,764 dataset), provide offline Vosk voice selection, and generate grounded local summaries via Llama 3.2:3B on Ollama.
+            </p>
+          </div>
+
+          <!-- Objective 4 -->
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem;">
+              <div class="brand-badge" style="width: 36px; height: 36px; font-size: 0.95rem; background: linear-gradient(135deg, #f59e0b, #ef4444);">04</div>
+              <div>
+                <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.15rem;">Objective 4: Personalized Reading &amp; Page Completion</h3>
+                <span style="font-size: 0.8rem; color: #f472b6; font-family: var(--font-mono);">Lead: Praveesha R G R · IT22299970</span>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+              Implement persistent contactless RFID user identification linked to a local SQLite database storing reading level, preferred voice, pace, and tone with a bounded 3-attempt spoken recovery. Fine-tune a sequence-to-sequence T5-small model for 3-tier text simplification (Very Simple, Moderate, Light; BLEU 62.85, 83% accuracy on 1,796 records). Classify voice styles using a 135-feature PCA-SVM model (82.72% accuracy), and synchronize deterministic speech-end page completion to cue page turns and close the reading loop.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Methodology & System Architecture (Website.pdf Slide 10) -->
+    <section id="methodology" class="section" style="background: rgba(13, 19, 34, 0.4);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pill">System Architecture</span>
+          <h2 class="section-title">5. High-Level Methodology & Dataflow</h2>
+          <p class="section-desc">
+            The end-to-end processing pipeline orchestrates physical sensing, edge vision processing, multimodal AI inferences, and personalized acoustic synthesis.
+          </p>
+        </div>
+
+        <!-- Architecture Diagram SVG -->
+        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-glass); margin-bottom: 3rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+          <img src="assets/images/architecture-diagram.svg" alt="VisionMate High-Level System Architecture Diagram" style="width: 100%; display: block;" />
+        </div>
+
+        <!-- Physical Hardware Prototype Embodiment -->
+        <div class="card" style="margin-bottom: 3.5rem; padding: 2rem; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.25);">
+          <div class="grid-2" style="align-items: center; gap: 2rem;">
+            <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-glass);">
+              <img src="assets/images/research-device.jpg" alt="VisionMate wearable assistant physical hardware prototype worn by reader" style="width: 100%; height: 320px; object-fit: cover; display: block;" />
+            </div>
+            <div>
+              <span class="tag" style="background: rgba(56,189,248,0.2); color: var(--accent-cyan); margin-bottom: 0.5rem;">
+                Physical System Embodiment
+              </span>
+              <h3 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 0.5rem;">Hardware Integration &amp; Wearable Architecture</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
+                The complete VisionMate software suite executes on a standalone wearable headset prototype documented in research component 1. The hardware architecture integrates a <strong>Raspberry Pi 5</strong> processing unit, a <strong>UGREEN 4K USB webcam</strong> for video frame acquisition, an <strong>MFRC522 contactless RFID reader</strong>, <strong>dual MAX98357 I2S 3W Class-D amplifier breakout DAC modules</strong> powering stereo speakers, and a portable power bank regulated via a dedicated power switch and USB Type-C power path.
+              </p>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="tag">Raspberry Pi 5 (8GB)</span>
+                <span class="tag">UGREEN 4K Webcam</span>
+                <span class="tag">Dual MAX98357 I2S DACs</span>
+                <span class="tag">Stereo Speakers</span>
+                <span class="tag">MFRC522 RFID</span>
+                <span class="tag">USB-C Power Circuit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Individual Module Deep Dive -->
+        <h3 style="font-size: 1.6rem; color: #ffffff; margin-bottom: 1.75rem; text-align: center;">
+          Modular Technical Breakdown Across All Four Subsystems
+        </h3>
+
+        <div class="grid-2" style="margin-bottom: 3rem;">
+          <!-- Subsystem 1 -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="tag" style="background: rgba(56,189,248,0.2); color: #38bdf8;">Subsystem 1</span>
+              <span style="font-size: 0.85rem; color: var(--accent-cyan); font-family: var(--font-mono);">Lead: Priyashantha D G M D</span>
+            </div>
+            <h4 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 0.6rem;">Automatic Camera Position Guidance &amp; Auto-Capture</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+              Continuous video feed from the UGREEN 4K camera is processed by a trained YOLO11n model to detect visible page regions (0.994 mAP50 on 309 images). OpenCV contour processing refines true page borders with fallback to the YOLO bounding box. Distance is estimated using calibrated page area ratios, and full visibility is verified via 4-edge margins. Auditory guidance ("Move closer", "Move camera left", "Ready. Hold steady") directs the user, triggering fast auto-capture (<code>READY_STABLE_FRAMES = 1</code>, 8s cooldown) without requiring strict centring.
+            </p>
+            <div class="tag-list">
+              <span class="tag">YOLO11n (0.994 mAP50)</span>
+              <span class="tag">OpenCV Boundary Refinement</span>
+              <span class="tag">Calibrated Area Ratio</span>
+              <span class="tag">Fast Auto-Capture</span>
+              <span class="tag">Dual I2S MAX98357 Audio</span>
+            </div>
+          </div>
+
+          <!-- Subsystem 2 -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="tag" style="background: rgba(99,102,241,0.2); color: #818cf8;">Subsystem 2</span>
+              <span style="font-size: 0.85rem; color: #818cf8; font-family: var(--font-mono);">Lead: D C M A Chithrasena</span>
+            </div>
+            <h4 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 0.6rem;">Document Identification and Image Describing</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+              Classifies 5 document types (Magazine, Newspaper, Novel, Printed Letter, Report) using a transfer-learning MobileNetV2 model trained on a balanced 1,095-image dataset (87.27% test accuracy, 90.91% validation). Extracts cover titles via EasyOCR/PaddleOCR and articulates natural-language visual descriptions using Salesforce BLIP (covers) and Microsoft Florence-2 (inside figures and illustrations) via FastAPI endpoints.
+            </p>
+            <div class="tag-list">
+              <span class="tag">MobileNetV2 (87.27% Test)</span>
+              <span class="tag">EasyOCR / PaddleOCR</span>
+              <span class="tag">Salesforce BLIP</span>
+              <span class="tag">Florence-2 Vision</span>
+              <span class="tag">FastAPI Endpoints</span>
+            </div>
+          </div>
+
+          <!-- Subsystem 3 -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="tag" style="background: rgba(16,185,129,0.2); color: #34d399;">Subsystem 3</span>
+              <span style="font-size: 0.85rem; color: #34d399; font-family: var(--font-mono);">Lead: Herath H M M G E H B</span>
+            </div>
+            <h4 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 0.6rem;">Content Summarization &amp; Category Detection</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+              Deconstructs complex multi-column newspaper pages using Tesseract OCR, OpenCV, and DocLayout-YOLO. Infers adaptive reading lanes and reconstructs articles via graph-based algorithms $G=(V, E)$. Classifies articles across 7 categories using TF-IDF + Logistic Regression (85.71% accuracy on 6,764 dataset). Employs offline Vosk voice commands and generates concise summaries with Llama 3.2:3B via Ollama with grounding checks.
+            </p>
+            <div class="tag-list">
+              <span class="tag">DocLayout-YOLO</span>
+              <span class="tag">Graph Article Grouping</span>
+              <span class="tag">TF-IDF + Logistic Reg (85.71%)</span>
+              <span class="tag">Offline Vosk ASR</span>
+              <span class="tag">Llama 3.2:3B (Ollama)</span>
+            </div>
+          </div>
+
+          <!-- Subsystem 4 -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="tag" style="background: rgba(236,72,153,0.2); color: #f472b6;">Subsystem 4</span>
+              <span style="font-size: 0.85rem; color: #f472b6; font-family: var(--font-mono);">Lead: Praveesha R G R</span>
+            </div>
+            <h4 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 0.6rem;">Personalized Reading &amp; Page Completion Detection</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+              Integrates contactless RFID tag scanning with local SQLite profiles (Reading Level, Voice, Pace, Tone) and 3-attempt spoken recovery. Adapts textual complexity via a fine-tuned T5-small seq2seq simplifier across 3 tiers (BLEU 62.85, 83% accuracy). Classifies voice tone via 135-feature PCA-SVM (82.72% accuracy) and manages deterministic speech-end page completion to loop into next-page reading.
+            </p>
+            <div class="tag-list">
+              <span class="tag">RFID RC522 + SQLite</span>
+              <span class="tag">T5-small Simplification</span>
+              <span class="tag">PCA-SVM Voice (82.72%)</span>
+              <span class="tag">3-Attempt Recovery</span>
+              <span class="tag">Deterministic Completion</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Synthesized Empirical Results Table Across All 4 Theses -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 2.25rem;">
+          <div style="margin-bottom: 1.75rem;">
+            <span class="tag" style="background: rgba(16, 185, 129, 0.15); color: #34d399; margin-bottom: 0.5rem;">
+              Empirical Validation Summary
+            </span>
+            <h3 style="font-size: 1.5rem; color: #ffffff; margin-bottom: 0.5rem;">
+              Synthesized Performance Matrix Across All Research Modules
+            </h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+              Extracted directly from the experimental evaluations, validation curves, and confusion matrices published in the four individual research dissertations.
+            </p>
+          </div>
+
+          <div class="table-responsive">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Research Module &amp; Model</th>
+                  <th>Dataset Scope &amp; Partitions</th>
+                  <th>Core Evaluation Metrics</th>
+                  <th>Key Experimental Outcomes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Module 01: YOLO11n Page Detector</strong><br />
+                    <span style="font-size: 0.78rem; color: var(--accent-cyan); font-family: var(--font-mono);">Priyashantha D G M D</span>
+                  </td>
+                  <td>309 validation images<br />(308 labelled page instances, 2 background)</td>
+                  <td>
+                    • Precision: <strong>0.992</strong><br />
+                    • Recall: <strong>0.990</strong><br />
+                    • mAP50: <strong>0.994</strong><br />
+                    • mAP50-95: <strong>0.979</strong>
+                  </td>
+                  <td>Near-perfect page boundary detection under diverse angles. 82.6 ms CPU inference speed. Stable capture configured with <code>READY_STABLE_FRAMES = 1</code> and 8-second cooldown.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Module 02: MobileNetV2 Classifier</strong><br />
+                    <span style="font-size: 0.78rem; color: #818cf8; font-family: var(--font-mono);">Chithrasena D C M A</span>
+                  </td>
+                  <td>1,095 images across 5 classes<br />(765 train / 165 val / 165 test)</td>
+                  <td>
+                    • Phase 1 Val Acc: <strong>76.97%</strong><br />
+                    • Fine-Tuned Val Acc: <strong>90.91%</strong><br />
+                    • Independent Test Acc: <strong>87.27%</strong>
+                  </td>
+                  <td>Strongest class-level performance on Magazine (F1: 0.97), Newspaper (F1: 0.94), and Novel (F1: 0.93). Minor confusion observed between text-heavy Printed Letters and Reports.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Module 03: TF-IDF + Logistic Reg</strong><br />
+                    <span style="font-size: 0.78rem; color: #34d399; font-family: var(--font-mono);">Herath H M M G E H B</span>
+                  </td>
+                  <td>6,764 total text samples (80:20 split)<br />210 OCR-degraded test samples (30/class)</td>
+                  <td>
+                    • Overall OCR Accuracy: <strong>85.71%</strong><br />
+                    • Macro Precision: <strong>0.913</strong><br />
+                    • Macro Recall: <strong>0.857</strong><br />
+                    • Macro F1-Score: <strong>0.855</strong>
+                  </td>
+                  <td>Exceptional performance on Science (F1: 0.984), Mathematics (F1: 0.983), Social (F1: 0.929), and Sports (F1: 0.921). General Text provides a robust conservative fallback for noisy OCR.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Module 04: T5-small Text Simplifier</strong><br />
+                    <span style="font-size: 0.78rem; color: #f472b6; font-family: var(--font-mono);">Praveesha R G R</span>
+                  </td>
+                  <td>1,796 records (source-wise split)<br />(1,257 train / 270 val / 269 test)</td>
+                  <td>
+                    • Best Validation BLEU: <strong>63.06</strong><br />
+                    • Test BLEU: <strong>62.85</strong><br />
+                    • Exact Match: <strong>31.97%</strong><br />
+                    • Diagnostic Accuracy: <strong>83.0%</strong>
+                  </td>
+                  <td>Level-conditioned simplification across Very Simple, Moderate, and Light tiers. Copied-source rate of 44.61% correctly preserves original wording when Light level is chosen.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Module 04: PCA-SVM Voice Classifier</strong><br />
+                    <span style="font-size: 0.78rem; color: #f472b6; font-family: var(--font-mono);">Praveesha R G R</span>
+                  </td>
+                  <td>401 audio recordings (80:20 split)<br />(135 acoustic features, 4 classes)</td>
+                  <td>
+                    • Test Accuracy: <strong>82.72%</strong><br />
+                    • Macro Precision: <strong>83.17%</strong><br />
+                    • Macro Recall: <strong>82.68%</strong><br />
+                    • Macro F1-Score: <strong>82.66%</strong>
+                  </td>
+                  <td>GridSearchCV identified RBF SVM (C=2, &gamma;=0.005) with PCA retaining 99% variance as optimal. Friendly tone achieved highest F1 (0.878), followed by Emotional (0.837) and Calm (0.811).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Technologies Used (Website.pdf Slide 10) -->
+    <section id="technologies" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pill">Tech Stack</span>
+          <h2 class="section-title">6. Technologies & Frameworks</h2>
+          <p class="section-desc">
+            Engineered using robust computer vision tools, edge machine learning models, and modern web interfaces.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card" style="padding: 1.5rem;">
+            <div class="icon-box" style="margin-bottom: 0.75rem;">🤖</div>
+            <h4 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.4rem;">YOLO11n &amp; OpenCV</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">
+              Real-time edge object detection (0.994 mAP50) and geometric boundary analysis for camera position guidance and auto-capture.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <div class="icon-box" style="margin-bottom: 0.75rem;">🧠</div>
+            <h4 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.4rem;">MobileNetV2 (87.27%)</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">
+              Fine-tuned 5-class deep CNN classifier for Magazine, Newspaper, Novel, Letter, and Report (90.91% validation).
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <div class="icon-box" style="margin-bottom: 0.75rem;">📰</div>
+            <h4 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.4rem;">DocLayout-YOLO &amp; Tesseract</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">
+              Pretrained DocStructBench layout detector combined with Tesseract OCR (PSM 3) for multi-column graph reconstruction.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <div class="icon-box" style="margin-bottom: 0.75rem;">⚡</div>
+            <h4 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.4rem;">Llama 3.2:3B &amp; Ollama</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">
+              Quantized local edge Large Language Model for privacy-preserving, grounded article summarization with extractive fallback.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <div class="icon-box" style="margin-bottom: 0.75rem;">📖</div>
+            <h4 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.4rem;">T5-small Simplification</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">
+              Hugging Face seq2seq transformer fine-tuned on 1,796 records for Very Simple, Moderate, and Light levels (BLEU 62.85).
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <div class="icon-box" style="margin-bottom: 0.75rem;">🎙️</div>
+            <h4 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.4rem;">PCA-SVM &amp; Librosa (82.7%)</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">
+              135 acoustic features (MFCC, pitch, energy) classified into Natural, Friendly, Emotional, Calm voice tones.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <div class="icon-box" style="margin-bottom: 0.75rem;">👁️</div>
+            <h4 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.4rem;">BLIP &amp; Florence-2 VLMs</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">
+              Salesforce BLIP cover captioning &amp; Microsoft Florence-2 inside-page illustration descriptions with noise filtering.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <div class="icon-box" style="margin-bottom: 0.75rem;">🗣️</div>
+            <h4 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.4rem;">Offline Vosk &amp; SQLite</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">
+              Local speech recognition toolkit for hands-free category/summary selection paired with persistent RFID user profiles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-link" style="margin-bottom: 0.75rem;">
+            <span class="brand-badge" aria-hidden="true">VM</span>
+            <span class="brand-title">VisionMate</span>
+          </div>
+          <p class="footer-brand-p">
+            Final Year Undergraduate Research Project (R26-IT-41). Developed at the Faculty of Computing, Sri Lanka Institute of Information Technology (SLIIT).
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Project Scope</h4>
+          <ul class="footer-links">
+            <li><a href="domain.html#literature-survey">Literature Survey</a></li>
+            <li><a href="domain.html#research-gap">Research Gap</a></li>
+            <li><a href="domain.html#problem-solution">Problem & Solution</a></li>
+            <li><a href="domain.html#objectives">Research Objectives</a></li>
+            <li><a href="domain.html#methodology">Methodology</a></li>
+            <li><a href="domain.html#technologies">Technologies Used</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Assessments</h4>
+          <ul class="footer-links">
+            <li><a href="milestones.html">Project Milestones</a></li>
+            <li><a href="documents.html">Project Documents</a></li>
+            <li><a href="presentations.html">Presentation Slides</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Team & Contact</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#team-members">Group Members</a></li>
+            <li><a href="contact.html">Contact Information</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 VisionMate Research Group (R26-IT-41). All rights reserved.</div>
+        <div class="academic-badge">SLIIT Faculty of Computing</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

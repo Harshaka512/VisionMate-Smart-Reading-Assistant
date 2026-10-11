@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VisionMate — Smart Wearable Reading Assistant for the Visually Impaired | SLIIT CDAP</title>
+  <meta name="description" content="VisionMate: A smart wearable assistive reading framework integrating real-time camera position guidance, document type detection, layout summarization, and age-adaptive TTS. Research Group R26-IT-41, SLIIT." />
+  <meta name="keywords" content="VisionMate, Assistive Technology, Visually Impaired, Smart Glasses, Wearable Reading Assistant, Raspberry Pi 5, YOLO11n, MobileNetV2, DocLayout-YOLO, Llama 3.2, T5-small, SLIIT, CDAP" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="VisionMate — Smart Wearable Reading Assistant for the Visually Impaired" />
+  <meta property="og:description" content="Edge AI assistive reading framework for independent access to printed materials. Research Group R26-IT-41, SLIIT." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Favicon / Tab Icon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="alternate icon" href="favicon.svg" />
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="sr-only">Skip to primary content</a>
+
+  <!-- Header Navigation (Compliant with Website.pdf Slide 8) -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="VisionMate Homepage">
+        <span class="brand-badge" aria-hidden="true">VM</span>
+        <div class="brand-info">
+          <span class="brand-title">VisionMate</span>
+          <span class="brand-subtitle">SLIIT · R26-IT-41</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="primary-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-item-link active" aria-current="page">Home</a></li>
+          <li><a href="domain.html" class="nav-item-link">Domain</a></li>
+          <li><a href="milestones.html" class="nav-item-link">Milestones</a></li>
+          <li><a href="documents.html" class="nav-item-link">Documents</a></li>
+          <li><a href="presentations.html" class="nav-item-link">Presentations</a></li>
+          <li><a href="about.html" class="nav-item-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-item-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Accessibility Actions & Mobile Menu Toggle -->
+      <div class="header-actions">
+        <button id="toggle-font-btn" class="a11y-btn" title="Toggle Larger Font" aria-label="Toggle larger font size">
+          <span style="font-weight: 700; font-size: 0.95rem;">A+</span>
+        </button>
+        <button id="toggle-contrast-btn" class="a11y-btn" title="Toggle High Contrast" aria-label="Toggle high contrast mode">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20z"/>
+          </svg>
+        </button>
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle mobile menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-nav" class="mobile-nav-panel">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html" class="mobile-nav-link active">Home</a></li>
+        <li><a href="domain.html" class="mobile-nav-link">Domain</a></li>
+        <li><a href="milestones.html" class="mobile-nav-link">Milestones</a></li>
+        <li><a href="documents.html" class="mobile-nav-link">Documents</a></li>
+        <li><a href="presentations.html" class="mobile-nav-link">Presentations</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="pulse-dot"></span>
+              <span>SLIIT Final Year Research · Project R26-IT-41</span>
+            </div>
+            <h1 class="hero-title">
+              Smart Wearable <span class="gradient-text">Reading Assistant</span> for the Visually Impaired
+            </h1>
+            <p class="hero-desc">
+              An intelligent edge-AI wearable solution delivering real-time camera position guidance, automatic document classification, multi-category layout summarization, and age-adaptive personalized text-to-speech for complete reading autonomy.
+            </p>
+            <div class="hero-actions">
+              <a href="domain.html" class="btn btn-primary">
+                Explore Research Domain
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+              <a href="documents.html" class="btn btn-secondary">Project Documents</a>
+              <a href="milestones.html" class="btn btn-secondary">View Milestones</a>
+            </div>
+
+            <!-- Abstract Process Flow -->
+            <div style="margin-top: 1.5rem;">
+              <span style="font-size: 0.75rem; text-transform: uppercase; font-family: var(--font-mono); color: var(--accent-cyan); letter-spacing: 0.1em; display: block; margin-bottom: 0.6rem;">
+                System Pipeline Architecture
+              </span>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; font-size: 0.85rem;">
+                <span class="tag" style="color: #38bdf8; border-color: rgba(56,189,248,0.3);">01. Edge Camera Guidance</span>
+                <span style="color: var(--text-dim);">→</span>
+                <span class="tag" style="color: #818cf8; border-color: rgba(129,140,248,0.3);">02. Document & Visual Parser</span>
+                <span style="color: var(--text-dim);">→</span>
+                <span class="tag" style="color: #34d399; border-color: rgba(52,211,153,0.3);">03. Category Summarizer</span>
+                <span style="color: var(--text-dim);">→</span>
+                <span class="tag" style="color: #f472b6; border-color: rgba(244,114,182,0.3);">04. Adaptive Speech</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Media Card -->
+          <div class="hero-visual">
+            <div class="hero-image-wrapper">
+              <img src="assets/images/hero-wearable.jpg" alt="VisionMate smart wearable reading assistant headset resting on an open book" class="hero-image" />
+              <div class="hero-visual-badge">
+                <div>
+                  <div class="hero-badge-title">VisionMate Wearable Prototype</div>
+                  <div class="hero-badge-sub">Raspberry Pi 5 · UGREEN 4K USB Camera · Dual I2S Audio</div>
+                </div>
+                <span class="tag" style="background: rgba(16,185,129,0.2); color: #34d399; border-color: #10b981;">
+                  Active Prototype
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- High-Impact Statistics Strip -->
+        <div class="stats-strip">
+          <div class="stat-item">
+            <div class="stat-number">2.2B+</div>
+            <div class="stat-label">Visual Impairments Globally (WHO)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">99.4%</div>
+            <div class="stat-label">YOLO11n Page Detection mAP50</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">87.3%</div>
+            <div class="stat-label">Document Classification (MobileNetV2)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">85.7%</div>
+            <div class="stat-label">OCR Category Accuracy (7 Classes)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4 Modules</div>
+            <div class="stat-label">Integrated Closed-Loop Pipeline</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Abstract & Problem Overview Section (Compliant with Slide 9) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pill">Research Introduction</span>
+          <h2 class="section-title">The Challenge & Our Breakthrough</h2>
+          <p class="section-desc">
+            Printed media remains one of the largest physical accessibility barriers for individuals with visual impairments.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <!-- Problem Definition Card -->
+          <div class="card">
+            <div class="icon-box" style="color: #ef4444; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.25);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 0.85rem; color: #ffffff;">The Critical Problem</h3>
+            <p style="margin-bottom: 1rem;">
+              Over 2.2 billion individuals globally endure visual impairments. Despite digital advances, physical printed documents—including textbooks, examination papers, daily newspapers, official correspondence, and medicine prescriptions—remain inaccessible without external human aid.
+            </p>
+            <ul style="color: var(--text-muted); padding-left: 1.25rem; font-size: 0.92rem; display: flex; flex-direction: column; gap: 0.5rem;">
+              <li><strong>Alignment Challenge:</strong> Visually impaired users cannot easily see if the page is tilted, cropped, or out of frame.</li>
+              <li><strong>Information Overload:</strong> Long multi-column documents like newspapers are exhausting to read entirely with direct TTS.</li>
+              <li><strong>Monotonic Audio:</strong> Standard screen readers ignore reader age, preference, vocabulary level, and tone.</li>
+            </ul>
+          </div>
+
+          <!-- Proposed Solution Card -->
+          <div class="card">
+            <div class="icon-box" style="color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 0.85rem; color: #ffffff;">Our Intelligent Solution</h3>
+            <p style="margin-bottom: 1rem;">
+              VisionMate introduces an end-to-end wearable computing framework powered by edge neural networks and multi-sensory feedback to deliver total reading freedom:
+            </p>
+            <ul style="color: var(--text-muted); padding-left: 1.25rem; font-size: 0.92rem; display: flex; flex-direction: column; gap: 0.5rem;">
+              <li><strong>Real-Time Camera Guidance:</strong> YOLO11n &amp; OpenCV detect document edges, vocally directing camera positioning and auto-capturing frames.</li>
+              <li><strong>Layout &amp; Diagram Explanation:</strong> MobileNetV2 classifies documents and multimodal vision describes inside diagrams aloud.</li>
+              <li><strong>Category &amp; Summary Filtering:</strong> Ollama LLaMA extracts key article digests from complex multi-topic newspapers.</li>
+              <li><strong>RFID Adaptive Personalization:</strong> Personalizes reading level, voice tone, and automatically prompts for page turns.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The 4 Research Components Grid (Compliant with Slide 3 & 8-20) -->
+    <section class="section" style="background: rgba(7, 10, 19, 0.6);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pill">Research Sub-Domains</span>
+          <h2 class="section-title">Core Individual Research Modules</h2>
+          <p class="section-desc">
+            VisionMate is engineered through four deeply integrated research components developed by our final-year engineering cohort.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <!-- Module 1 -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span class="tag" style="background: rgba(56,189,248,0.15); color: #38bdf8;">Module 01</span>
+              <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-cyan);">IT22295392</span>
+            </div>
+            <h3 style="font-size: 1.28rem; margin-bottom: 0.5rem; color: #ffffff;">Automatic Camera Position Guidance &amp; Auto-Capture</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+              <strong>Lead Researcher: Priyashantha D G M D</strong><br />
+              Integrates Raspberry Pi 5 with YOLO11n (0.994 mAP50 on 309 images) and OpenCV boundary refinement to continuously monitor page orientation, delivering real-time voice guidance ("Move closer/left") through dual I2S speakers and executing fast auto-capture when the page is fully visible.
+            </p>
+            <div class="tag-list">
+              <span class="tag">YOLO11n (0.994 mAP50)</span>
+              <span class="tag">OpenCV Boundary</span>
+              <span class="tag">Distance Calibration</span>
+              <span class="tag">Fast Auto-Capture</span>
+              <span class="tag">Dual I2S Audio</span>
+            </div>
+          </div>
+
+          <!-- Module 2 -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span class="tag" style="background: rgba(99,102,241,0.15); color: #818cf8;">Module 02</span>
+              <span style="font-family: var(--font-mono); font-size: 0.82rem; color: #818cf8;">IT22114112</span>
+            </div>
+            <h3 style="font-size: 1.28rem; margin-bottom: 0.5rem; color: #ffffff;">Document Identification and Image Describing</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+              <strong>Lead Researcher: D C M A Chithrasena</strong><br />
+              Classifies 5 document types (Magazine, Newspaper, Novel, Printed Letter, Report) via MobileNetV2 with 87.27% test accuracy (90.91% validation), extracts titles/mastheads via EasyOCR/PaddleOCR, and articulates rich visual descriptions using BLIP &amp; Florence-2 via FastAPI.
+            </p>
+            <div class="tag-list">
+              <span class="tag">MobileNetV2 (87.3%)</span>
+              <span class="tag">EasyOCR / PaddleOCR</span>
+              <span class="tag">Salesforce BLIP</span>
+              <span class="tag">Florence-2</span>
+              <span class="tag">FastAPI</span>
+            </div>
+          </div>
+
+          <!-- Module 3 -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span class="tag" style="background: rgba(16,185,129,0.15); color: #34d399;">Module 03</span>
+              <span style="font-family: var(--font-mono); font-size: 0.82rem; color: #34d399;">IT22198136</span>
+            </div>
+            <h3 style="font-size: 1.28rem; margin-bottom: 0.5rem; color: #ffffff;">Content Summarization &amp; Category Detection</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+              <strong>Lead Researcher: Herath H M M G E H B</strong><br />
+              Reconstructs complex newspaper layouts via Tesseract OCR, OpenCV, and DocLayout-YOLO with graph article reconstruction. Classifies 7 categories via TF-IDF Logistic Regression (85.71% accuracy), provides offline Vosk speech choices, and produces grounded summaries with Llama 3.2:3B via Ollama.
+            </p>
+            <div class="tag-list">
+              <span class="tag">DocLayout-YOLO</span>
+              <span class="tag">Graph Article Reconstruction</span>
+              <span class="tag">TF-IDF + Logistic Reg (85.7%)</span>
+              <span class="tag">Vosk ASR</span>
+              <span class="tag">Llama 3.2:3B (Ollama)</span>
+            </div>
+          </div>
+
+          <!-- Module 4 -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+              <span class="tag" style="background: rgba(236,72,153,0.15); color: #f472b6;">Module 04</span>
+              <span style="font-family: var(--font-mono); font-size: 0.82rem; color: #f472b6;">IT22299970</span>
+            </div>
+            <h3 style="font-size: 1.28rem; margin-bottom: 0.5rem; color: #ffffff;">Personalized Reading and Page Completion Detection</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+              <strong>Lead Researcher: Praveesha R G R</strong><br />
+              Implements persistent RFID-linked SQLite user profiles with a 3-attempt recovery workflow. Fine-tunes T5-small for 3-tier text simplification (BLEU 62.85, 83% accuracy), classifies voice tone using 135-feature PCA-SVM (82.72% accuracy), and signals deterministic spoken page completion.
+            </p>
+            <div class="tag-list">
+              <span class="tag">RFID RC522 + SQLite</span>
+              <span class="tag">T5-small Simplification</span>
+              <span class="tag">PCA-SVM Voice (82.7%)</span>
+              <span class="tag">Spoken Retry Logic</span>
+              <span class="tag">Deterministic Page Turn</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="domain.html" class="btn btn-secondary">
+            View Complete Methodology & System Architecture
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Physical Research Device Showcase Section -->
+    <section class="section" style="border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); background: radial-gradient(circle at 80% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 60%);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pill">Physical Prototype</span>
+          <h2 class="section-title">The VisionMate Wearable Device</h2>
+          <p class="section-desc">
+            Custom engineered wearable headgear integrating edge computing, optical guidance sensors, directional acoustics, and RFID personalization into a balanced ergonomic form factor.
+          </p>
+        </div>
+
+        <div class="grid-2" style="align-items: center; gap: 3rem;">
+          <!-- Device Photo with Interactive Callout Badges -->
+          <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 35px rgba(56, 189, 248, 0.15);">
+            <img src="assets/images/research-device.jpg" alt="VisionMate smart wearable reading assistant prototype headset with front blue optical guidance sensor band" style="width: 100%; display: block; object-fit: cover; max-height: 480px;" />
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(180deg, transparent 0%, rgba(2, 6, 23, 0.95) 80%); display: flex; justify-content: space-between; align-items: flex-end;">
+              <div>
+                <span class="tag" style="background: rgba(56, 189, 248, 0.25); color: #38bdf8; margin-bottom: 0.35rem;">
+                  Hardware Prototype R26-IT-41
+                </span>
+                <div style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">Custom 3D Headset Chassis</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Self-Contained Edge Processing Unit</div>
+              </div>
+              <span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #34d399; font-weight: 700;">
+                Live Device
+              </span>
+            </div>
+          </div>
+
+          <!-- Component Breakdown Cards -->
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div class="card" style="padding: 1.25rem 1.5rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div class="brand-badge" style="width: 38px; height: 38px; font-size: 0.95rem; flex-shrink: 0;">01</div>
+                <div>
+                  <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 0.25rem;">UGREEN 4K Camera &amp; YOLO11n Guidance</h4>
+                  <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.55;">
+                    Front-mounted UGREEN 4K USB camera streaming frames to YOLO11n for page detection (0.994 mAP50) with OpenCV boundary refinement, area-ratio distance calibration, and fast auto-capture.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="padding: 1.25rem 1.5rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div class="brand-badge" style="width: 38px; height: 38px; font-size: 0.95rem; background: var(--grad-cyan-emerald); flex-shrink: 0;">02</div>
+                <div>
+                  <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 0.25rem;">Top-Mounted Raspberry Pi 5 Compute Core</h4>
+                  <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.55;">
+                    Compact chassis housing the Raspberry Pi 5 quad-core ARM processor, powered portably via a power bank through a dedicated power switch and USB Type-C power circuitry.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="padding: 1.25rem 1.5rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div class="brand-badge" style="width: 38px; height: 38px; font-size: 0.95rem; background: var(--grad-purple-pink); flex-shrink: 0;">03</div>
+                <div>
+                  <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 0.25rem;">Dual MAX98357 I2S Amplifiers &amp; Stereo Speakers</h4>
+                  <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.55;">
+                    Two MAX98357 I2S Class-D DAC amplifier breakout modules driving stereo speakers for directional voice guidance ("Move closer/left") and high-fidelity personalized reading playback.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="padding: 1.25rem 1.5rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div class="brand-badge" style="width: 38px; height: 38px; font-size: 0.95rem; background: linear-gradient(135deg, #f59e0b, #ef4444); flex-shrink: 0;">04</div>
+                <div>
+                  <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 0.25rem;">Integrated MFRC522 RFID Personalization</h4>
+                  <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.55;">
+                    Instant contactless card tap links user ID to a local SQLite profile, automatically configuring reading complexity, preferred voice, pace, and tone with spoken retry recovery.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commercialization & Real-World Impact (Compliant with Slide 21 & 22) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pill">Socio-Economic Impact</span>
+          <h2 class="section-title">Commercialization & Market Viability</h2>
+          <p class="section-desc">
+            Designed to bridge the gap between academic research and affordable assistive technology for institutions and individual users.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card" style="text-align: center; padding: 1.5rem;">
+            <div class="stat-number" style="font-size: 1.7rem; color: #38bdf8;">LKR 88,500</div>
+            <h4 style="font-size: 1rem; margin: 0.5rem 0; color: #ffffff;">Prototype Hardware Cost</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">
+              Affordable Raspberry Pi 5 compute engine, IMX219 optics, RFID, and rechargeable power cell.
+            </p>
+          </div>
+
+          <div class="card" style="text-align: center; padding: 1.5rem;">
+            <div class="stat-number" style="font-size: 1.7rem; color: #10b981;">LKR 150,000</div>
+            <h4 style="font-size: 1rem; margin: 0.5rem 0; color: #ffffff;">Proposed Selling Price</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">
+              Significantly lower than imported commercial devices ($3,500+) with localized adaptability.
+            </p>
+          </div>
+
+          <div class="card" style="text-align: center; padding: 1.5rem;">
+            <div class="stat-number" style="font-size: 1.7rem; color: #a855f7;">Special Ed</div>
+            <h4 style="font-size: 1rem; margin: 0.5rem 0; color: #ffffff;">Target Institutions</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">
+              Schools for the blind, university libraries, rehabilitation centers, and non-profit NGOs.
+            </p>
+          </div>
+
+          <div class="card" style="text-align: center; padding: 1.5rem;">
+            <div class="stat-number" style="font-size: 1.7rem; color: #f472b6;">IP Rights</div>
+            <h4 style="font-size: 1rem; margin: 0.5rem 0; color: #ffffff;">Intellectual Property</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">
+              Novel edge-guidance closed-loop architecture eligible for utility patent registration.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links to Milestones & Documents Banner -->
+    <section class="section" style="padding: 2.5rem 0 4.5rem;">
+      <div class="container">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 2.5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;">
+          <div>
+            <span class="tag" style="background: rgba(56,189,248,0.15); color: var(--accent-cyan); margin-bottom: 0.5rem;">
+              CDAP Assessment Portal
+            </span>
+            <h3 style="font-size: 1.6rem; color: #ffffff; margin-bottom: 0.5rem;">Ready to inspect project deliverables?</h3>
+            <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 600px;">
+              Review our assessment milestones, allocated grades, project charter, final thesis report, presentations, and meet the research team.
+            </p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <a href="milestones.html" class="btn btn-primary">View Milestones</a>
+            <a href="documents.html" class="btn btn-secondary">All Documents</a>
+            <a href="about.html" class="btn btn-secondary">Meet Our Team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer (Compliant with Website.pdf Slide 8 & 16) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-link" style="margin-bottom: 0.75rem;">
+            <span class="brand-badge" aria-hidden="true">VM</span>
+            <span class="brand-title">VisionMate</span>
+          </div>
+          <p class="footer-brand-p">
+            Final Year Undergraduate Research Project (R26-IT-41). Developed at the Faculty of Computing, Sri Lanka Institute of Information Technology (SLIIT).
+          </p>
+          <div style="margin-top: 1.25rem; font-size: 0.82rem; color: var(--accent-cyan); font-family: var(--font-mono);">
+            Batch 2026 · Information Technology Specialization
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Project Scope</h4>
+          <ul class="footer-links">
+            <li><a href="domain.html#literature-survey">Literature Survey</a></li>
+            <li><a href="domain.html#research-gap">Research Gap</a></li>
+            <li><a href="domain.html#problem-solution">Problem & Solution</a></li>
+            <li><a href="domain.html#objectives">Research Objectives</a></li>
+            <li><a href="domain.html#methodology">Methodology</a></li>
+            <li><a href="domain.html#technologies">Technologies Used</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Assessments</h4>
+          <ul class="footer-links">
+            <li><a href="milestones.html">Project Milestones</a></li>
+            <li><a href="documents.html">Project Documents</a></li>
+            <li><a href="presentations.html">Presentation Slides</a></li>
+            <li><a href="milestones.html#timeline">Timeline & Marks</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Team & Contact</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#team-members">Group Members</a></li>
+            <li><a href="about.html#supervisors">Supervisors</a></li>
+            <li><a href="contact.html">Contact Information</a></li>
+            <li><a href="contact.html#feedback">Inquiry Form</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 VisionMate Research Group (R26-IT-41). All rights reserved.
+        </div>
+        <div class="academic-badge">
+          <span>Sri Lanka Institute of Information Technology (SLIIT)</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
