@@ -174,43 +174,73 @@
             <thead>
               <tr>
                 <th>Operational Research Gap</th>
-                <th>Prior Systems Evidence (FingerReader, Vivoice, Sharma, ACCESS)</th>
+                <th>Prior Systems Evidence</th>
                 <th>VisionMate Integrated Proposed Response</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><strong>1. Pre-Capture Positioning Blindness (Module 1)</strong></td>
-                <td>Existing systems assume a perfectly framed image already exists. Visually impaired users cannot determine tilt, skew, distance, or lighting.</td>
+                <td>FingerReader [1] and Vivoice [2] assume a captured image is already available. Directional-guidance studies [3] and mobile OCR comparisons [4] show that visually impaired users still cannot judge tilt, skew, distance, or framing.</td>
                 <td><span class="check-mark">✓</span> <strong>Real-Time Voice-Guided Alignment:</strong> YOLO11n page detection + OpenCV boundary refinement + area-ratio distance estimation + voice prompts ("Move closer/left") + auto-capture.</td>
               </tr>
               <tr>
                 <td><strong>2. Document Context &amp; Visual Content Blindness (Module 2)</strong></td>
-                <td>OCR/TTS readers treat all documents as flat text, failing to detect document genre and completely ignoring photographs, charts, and diagrams.</td>
+                <td>OCR/TTS readers treat all documents as flat text. VizWiz shows that blind users need descriptions of photographs, charts, and diagrams [5], [6], while genre classification [8] and image captioning [7] remain separate from the reading pipeline.</td>
                 <td><span class="check-mark">✓</span> <strong>5-Class Classification &amp; Multimodal Captioning:</strong> MobileNetV2 classifies Magazine, Newspaper, Novel, Letter, Report (87.27% test). Local BLIP and Florence-2 describe inside illustrations.</td>
               </tr>
               <tr>
                 <td><strong>3. Multi-Column Layout Interleaving (Module 3)</strong></td>
-                <td>Conventional OCR streams read text top-to-bottom across adjacent columns, scrambling independent news stories and advertisements together.</td>
+                <td>Conventional OCR [9] reads text top-to-bottom across adjacent columns. Newspaper article recovery [10] and layout datasets such as PubLayNet [11] show that separate stories and advertisements are scrambled together.</td>
                 <td><span class="check-mark">✓</span> <strong>Hybrid Layout &amp; Graph Article Reconstruction:</strong> DocLayout-YOLO + Tesseract geometry + adaptive reading-lanes + $G=(V,E)$ graph reconstructs discrete multi-column stories and partial captures.</td>
               </tr>
               <tr>
                 <td><strong>4. Exhaustive Monolithic Reading (Module 3)</strong></td>
-                <td>Users are forced to listen to entire pages sequentially to find desired topics, without semantic categorization or concise summaries.</td>
+                <td>Users are forced to listen to entire pages sequentially. BrailleSUM [12] summarizes news for blind readers, but prior systems still do not offer topic selection before the full page is read.</td>
                 <td><span class="check-mark">✓</span> <strong>7-Class Navigation &amp; Grounded Local Summaries:</strong> TF-IDF Logistic Regression classifies 7 categories (85.71% accuracy). Offline Vosk speech navigation + local Llama 3.2:3B summaries via Ollama.</td>
               </tr>
               <tr>
                 <td><strong>5. Uniform Language Complexity (Module 4)</strong></td>
-                <td>Complex syntax and specialized vocabulary are read verbatim, overwhelming readers who require simpler language or different cognitive pacing.</td>
+                <td>Complex syntax is read verbatim. T5 [13], ACCESS [14], and later controllable simplification models [15], [16] show that one vocabulary level does not fit every reader.</td>
                 <td><span class="check-mark">✓</span> <strong>Level-Aware T5-small Text Simplification:</strong> Sequence-to-sequence transformer fine-tuned on 1,796 records across 3 reading tiers (Very Simple, Moderate, Light; BLEU 62.85, 83% accuracy).</td>
               </tr>
               <tr>
                 <td><strong>6. Session Discontinuity &amp; Static Audio (Module 4)</strong></td>
-                <td>No memory of user preferences across sessions. Readers cannot tell if speech ended due to page completion or system failure.</td>
+                <td>Wearable aids often restart without a stored profile [20]. RFID can identify a user [17], and MFCC-SVM methods can classify voice style [18], [19], but prior readers do not keep preferences or signal whether speech ended because the page finished.</td>
                 <td><span class="check-mark">✓</span> <strong>RFID Profile Persistence &amp; Deterministic Completion:</strong> Contactless tag loads SQLite preferences with 3-attempt recovery. PCA-SVM tunes voice (82.72%). Audible page-turn cue loops to next page.</td>
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <div id="references" style="margin-top: 2.75rem;">
+          <span class="section-pill">Cited Works</span>
+          <h3 style="font-size: 1.45rem; color: #ffffff; margin-top: 0.65rem; margin-bottom: 0.45rem;">References</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 860px; margin-bottom: 1.25rem; line-height: 1.6;">
+            Sources cited in the research-gap matrix, drawn from the VisionMate research paper and the prior systems compared above.
+          </p>
+          <ol class="reference-list">
+            <li>R. Shilkrot, J. Huber, M. E. Wong, P. Maes, and S. C. Nanayakkara, “FingerReader: A wearable device to explore printed text on the go,” in <em>Proc. 33rd Annu. ACM Conf. Human Factors Comput. Syst. (CHI)</em>, 2015, pp. 2363–2372, doi: 10.1145/2702123.2702421.</li>
+            <li>R. Prabha, M. Razmah, G. Saritha, R. M. Asha, Senthil G. A, and R. Gayathiri, “Vivoice — Reading assistant for the blind using OCR and TTS,” in <em>Proc. Int. Conf. Comput. Commun. Informatics (ICCCI)</em>, 2022, pp. 1–7, doi: 10.1109/ICCCI54379.2022.9740877.</li>
+            <li>L. Stearns, R. Du, U. Oh, C. Jou, L. Findlater, D. A. Ross, and J. E. Froehlich, “Evaluating haptic and auditory directional guidance to assist blind people in reading printed text using finger-mounted cameras,” <em>ACM Trans. Accessible Comput.</em>, vol. 9, no. 1, pp. 1–38, 2016, doi: 10.1145/2914793.</li>
+            <li>L. Neat, R. Peng, S. Qin, and R. Manduchi, “Scene text access: A comparison of mobile OCR modalities for blind users,” in <em>Proc. 24th Int. Conf. Intelligent User Interfaces (IUI)</em>, 2019, pp. 197–207, doi: 10.1145/3301275.3302271.</li>
+            <li>D. Gurari et al., “VizWiz Grand Challenge: Answering visual questions from blind people,” in <em>Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR)</em>, 2018, pp. 3608–3617, doi: 10.1109/CVPR.2018.00380.</li>
+            <li>D. Gurari, Y. Zhao, M. Zhang, and N. Bhattacharya, “Captioning images taken by people who are blind,” in <em>Computer Vision — ECCV 2020</em>, LNCS 12362, 2020, pp. 417–434, doi: 10.1007/978-3-030-58520-4_25.</li>
+            <li>J. Li, D. Li, C. Xiong, and S. Hoi, “BLIP: Bootstrapping language-image pre-training for unified vision-language understanding and generation,” in <em>Proc. 39th Int. Conf. Mach. Learn. (ICML)</em>, vol. 162, 2022, pp. 12888–12900.</li>
+            <li>M. Sandler, A. Howard, M. Zhu, A. Zhmoginov, and L.-C. Chen, “MobileNetV2: Inverted residuals and linear bottlenecks,” in <em>Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR)</em>, 2018, pp. 4510–4520.</li>
+            <li>R. Smith, “An overview of the Tesseract OCR engine,” in <em>Proc. 9th Int. Conf. Document Analysis and Recognition (ICDAR)</em>, 2007, pp. 629–633.</li>
+            <li>M. Riedl, D. Betz, and S. Padó, “Clustering-based article identification in historical newspapers,” in <em>Proc. 3rd Joint SIGHUM Workshop Comput. Linguistics for Cultural Heritage, Social Sciences, Humanities and Literature</em>, 2019, pp. 12–17, doi: 10.18653/v1/W19-2502.</li>
+            <li>X. Zhong, J. Tang, and A. J. Yepes, “PubLayNet: Largest dataset ever for document layout analysis,” in <em>Proc. Int. Conf. Document Analysis and Recognition (ICDAR)</em>, 2019, pp. 1015–1022.</li>
+            <li>X. Wan and Y. Hu, “BrailleSUM: A news summarization system for the blind and visually impaired people,” in <em>Proc. 53rd Annu. Meeting Assoc. Comput. Linguistics and 7th Int. Joint Conf. Natural Language Processing</em>, vol. 2, 2015, pp. 578–582, doi: 10.3115/v1/P15-2095.</li>
+            <li>C. Raffel et al., “Exploring the limits of transfer learning with a unified text-to-text transformer,” <em>J. Mach. Learn. Res.</em>, vol. 21, no. 140, pp. 1–67, 2020.</li>
+            <li>L. Martin, É. de la Clergerie, B. Sagot, and A. Bordes, “Controllable sentence simplification,” in <em>Proc. 12th Lang. Resources Eval. Conf. (LREC)</em>, 2020, pp. 4689–4698.</li>
+            <li>K. C. Sheang and H. Saggion, “Controllable sentence simplification with a unified text-to-text transfer transformer,” in <em>Proc. 14th Int. Conf. Natural Language Generation</em>, 2021, pp. 341–352, doi: 10.18653/v1/2021.inlg-1.38.</li>
+            <li>S. Stajner, “Automatic text simplification for social good: Progress and challenges,” in <em>Findings Assoc. Comput. Linguistics: ACL-IJCNLP</em>, 2021, pp. 2637–2652, doi: 10.18653/v1/2021.findings-acl.233.</li>
+            <li>P. Sedighi, M. H. Norouzi, and M. Delrobaei, “An RFID-based assistive glove to help the visually impaired,” <em>IEEE Trans. Instrum. Meas.</em>, vol. 70, pp. 1–9, 2021, doi: 10.1109/TIM.2021.3069834.</li>
+            <li>C. Cortes and V. Vapnik, “Support-vector networks,” <em>Mach. Learn.</em>, vol. 20, pp. 273–297, 1995, doi: 10.1007/BF00994018.</li>
+            <li>S. B. Davis and P. Mermelstein, “Comparison of parametric representations for monosyllabic word recognition in continuously spoken sentences,” <em>IEEE Trans. Acoust., Speech, Signal Process.</em>, vol. 28, no. 4, pp. 357–366, 1980, doi: 10.1109/TASSP.1980.1163420.</li>
+            <li>M. Hersh, “Wearable travel aids for blind and partially sighted people: A review with a focus on design issues,” <em>Sensors</em>, vol. 22, no. 14, Art. no. 5454, 2022, doi: 10.3390/s22145454.</li>
+          </ol>
         </div>
       </div>
     </section>

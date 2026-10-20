@@ -775,6 +775,39 @@ textarea.form-control {
   background: rgba(255, 255, 255, 0.02);
 }
 
+.reference-list {
+  list-style: none;
+  counter-reset: reference;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+}
+
+.reference-list li {
+  counter-increment: reference;
+  position: relative;
+  padding-left: 2.6rem;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.reference-list li::before {
+  content: "[" counter(reference) "]";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
 .check-mark {
   color: #10b981;
   font-weight: 800;
